@@ -1,0 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.button {
+    padding: 20px 50px;
+}
+
+.user {
+    border-bottom: 1px solid rgba(209, 209, 209, 0.39);
+    padding: 10px;
+}
+
+.btn-danger, .btn-default {
+    margin-top: 10px;
+}

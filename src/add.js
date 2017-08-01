@@ -1,15 +1,16 @@
 import React from 'react'
 
-class AddUser extends React.Component {
+export default class AddUser extends React.Component {
     constructor() {
         super();
-        this.state = {user : {id: 1, name: ''}};
+        this.state = {user : { id: 3, name: '' }};
         this.buttonClick = this.buttonClick.bind(this);
         this.inputChange = this.inputChange.bind(this);
     }
 
     inputChange() {
-        this.state.user.name = this.refs.username.value;
+        let user = this.state.user;
+        user.name = this.refs.username.value;
         this.setState({user : this.state.user})
     }
 
@@ -29,7 +30,7 @@ class AddUser extends React.Component {
         let name = this.state.user.name;
         return (
             <div>
-                <div className="col-md-6 col-md-offset-3">
+                <div className="col-md-6">
                     <h3 className="text-success">Add new user: </h3>
                     <input
                         onChange={this.inputChange}
@@ -49,5 +50,3 @@ class AddUser extends React.Component {
         );
     }
 }
-
-export default AddUser;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class User extends React.Component {
+export default class User extends React.Component {
     constructor() {
         super();
         this.remove = this.remove.bind(this);
@@ -16,8 +16,8 @@ class User extends React.Component {
             <div className="user">
                 <div className="col-md-8">
                     <div className="info">
-                        <p><b>id:</b> {user.id}</p>
-                        <p><b>name:</b> {user.name}</p>
+                        <p><b>ID:</b> {user.id}</p>
+                        <p><b>Name:</b> {user.name}</p>
                     </div>
                 </div>
                 <div className="col-md-4">
@@ -31,5 +31,3 @@ class User extends React.Component {
         );
     }
 }
-
-export default User
