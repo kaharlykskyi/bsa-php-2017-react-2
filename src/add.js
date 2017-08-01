@@ -30,7 +30,7 @@ export default class AddUser extends React.Component {
         let name = this.state.user.name;
         return (
             <div>
-                <div className="col-md-6">
+                <div className="col-md-4 col-md-offset-1">
                     <h3 className="text-success">Add new user: </h3>
                     <input
                         onChange={this.inputChange}

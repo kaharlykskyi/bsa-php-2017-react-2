@@ -48,7 +48,7 @@ export default class App extends React.Component {
                     <AddUser
                         addUser={this.save}
                     />
-                    <div className="col-md-6">
+                    <div className="col-md-4 col-md-offset-1">
                         <h3 className="text-success">Or search user: </h3>
                         <input
                             onChange={this.filter.bind(this)}
