@@ -38,7 +38,7 @@ export default class AddUser extends React.Component {
                         ref="username"
                         className="form-control"
                         type="text"
-                        placeholder="name"/>
+                        placeholder="Enter name"/>
                     <button
                         onClick={this.buttonClick}
                         className="btn btn-default">

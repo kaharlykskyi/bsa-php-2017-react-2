@@ -1,17 +1,22 @@
-import React from 'react'
-import AddUser from './add'
-import UserList from './userlist'
+import React from 'react';
+import AddUser from './add';
+import UserList from './userlist';
+import Search from './search';
 
 export default class App extends React.Component {
     constructor() {
         super();
         this.state = { users : [{
                 id: 1,
-                name: 'Mike'
+                name: 'Иванов'
             },
             {
                 id: 2,
-                name: 'Stepan'
+                name: 'Петров'
+            },
+            {
+                id: 3,
+                name: 'Сидоров'
             }]
         };
         this.save = this.save.bind(this);
@@ -31,8 +36,8 @@ export default class App extends React.Component {
         this.setState({users : removed});
     }
 
-    filter() {
-        this.setState({filter : this.refs.search.value})
+    filter(str) {
+        this.setState({filter : str})
     }
 
     render() {
@@ -48,20 +53,13 @@ export default class App extends React.Component {
                     <AddUser
                         addUser={this.save}
                     />
-                    <div className="col-md-4 col-md-offset-1">
-                        <h3 className="text-success">Or search user: </h3>
-                        <input
-                            onChange={this.filter.bind(this)}
-                            ref="search"
-                            type="text"
-                            className="form-control"
-                            placeholder="Search name"
-                        />
-                    </div>
+                    <Search
+                        onChange={this.filter.bind(this)}
+                    />
                 </div><hr/>
                 <div className="row">
                     <UserList
-                        users={users}//this.state.users}
+                        users={users}
                         remove={this.remove}
                     />
                 </div>

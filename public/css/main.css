@@ -12,6 +12,10 @@
     padding: 10px;
 }
 
+.user:last-child {
+    border-bottom: none;
+}
+
 .btn-danger, .btn-default {
     margin-top: 10px;
 }
