@@ -1,52 +1,51 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addUser } from './actions/actions';
 
-export default class AddUser extends React.Component {
-    constructor() {
-        super();
-        this.state = {user : { id: 3, name: '' }};
-        this.buttonClick = this.buttonClick.bind(this);
-        this.inputChange = this.inputChange.bind(this);
-    }
-
-    inputChange() {
-        let user = this.state.user;
-        user.name = this.refs.username.value;
-        this.setState({user : this.state.user})
-    }
-
+class AddUser extends React.Component {
     buttonClick() {
-        if(this.state.user.name === '') {
+        if(this.username.value === '') {
             alert('Please input user name to add user');
         } else {
-            this.props.addUser(this.state.user);
-            this.setState({user: {
-                id : this.state.user.id + 1,
-                name : ''
-            }});
+            this.props.addUser(this.username.value);
+            this.username.value = '';
         }
     }
 
     render() {
-        let name = this.state.user.name;
         return (
             <div>
                 <div className="col-md-4 col-md-offset-1">
                     <h3 className="text-success">Add new user: </h3>
                     <input
-                        onChange={this.inputChange}
-                        value={name}
-                        ref="username"
+                        ref={(input) => {this.username = input}}
                         className="form-control"
                         type="text"
                         placeholder="Enter name"/>
                     <button
-                        onClick={this.buttonClick}
-                        className="btn btn-default">
+                        type="button"
+                        onClick={this.buttonClick.bind(this)}
+                        className='btn btn-primary' >
                         Add user
                     </button>
                 </div>
-
             </div>
         );
     }
 }
+
+
+const AddUserDispatch = connect(
+    (state) => ({
+        users: state
+    }),
+    (dispatch) =>
+        bindActionCreators({addUser} , dispatch)
+)(AddUser);
+
+export default AddUserDispatch;
+
+
+
+
